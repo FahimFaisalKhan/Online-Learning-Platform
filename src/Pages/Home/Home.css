@@ -1,0 +1,14 @@
+.cover-stat {
+  top: -5%;
+  right: 0;
+}
+.bg-stats {
+  background: linear-gradient(60deg, #beafa9, #e4d8cf 40%, #ede3dd 60%);
+}
+.stat {
+  border-color: black;
+}
+.cover-comment {
+  bottom: -10%;
+  left: 0;
+}
