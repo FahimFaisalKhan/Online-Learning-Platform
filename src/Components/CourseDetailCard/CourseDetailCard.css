@@ -1,0 +1,9 @@
+.bg-card {
+  background: linear-gradient(
+    120deg,
+    #c1b0c9,
+    #d6bdab 40%,
+    #c9b19d 75%,
+    #a88690 100%
+  );
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Dropdown, Menu, Navbar } from "react-daisyui";
-
+import { Link } from "react-router-dom";
+import "./Navigation.css";
 const Navigation = () => {
   return (
     <div>
@@ -57,29 +58,61 @@ const Navigation = () => {
           style={{ color: "#101213" }}
         >
           <Menu horizontal className="p-0 w-full ">
-            <Menu.Item className="py-5  border-r-2 border-b-2 border-black grow justify-center">
-              logo name
+            <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
+              <Link
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                to={"/"}
+              >
+                logo name
+              </Link>
             </Menu.Item>
-            <Menu.Item className="py-5 border-r-2 border-b-2 border-black grow justify-center">
-              Courses
+            <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
+              <Link
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                to={"/courses"}
+              >
+                Courses
+              </Link>
             </Menu.Item>
-            <Menu.Item
-              className="py-5 border-r-2 border-b-2 border-black grow justify-center"
-              tabIndex={0}
-            >
-              FAQ
+            <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
+              <Link
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                to={"/"}
+              >
+                FAQ
+              </Link>
             </Menu.Item>
-            <Menu.Item className="py-5 border-r-2 border-b-2 border-black grow justify-center">
-              Blog
+            <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
+              <Link
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                to={"/"}
+              >
+                Blog
+              </Link>
             </Menu.Item>
-            <Menu.Item className="py-5 border-r-2 border-b-2 border-black grow justify-center">
-              SIgn in
+            <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
+              <Link
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                to={"/"}
+              >
+                Sign in
+              </Link>
             </Menu.Item>
-            <Menu.Item className="py-5 border-r-2 border-b-2 border-black grow justify-center">
-              Sign up
+            <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
+              <Link
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                to={"/"}
+              >
+                Sign up
+              </Link>
             </Menu.Item>
-            <Menu.Item className="py-5  border-b-2 border-black grow justify-center">
-              Theme
+            <Menu.Item className=" border-b-2 border-black grow justify-center ">
+              <Link
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                to={"/"}
+              >
+                Theme
+              </Link>
             </Menu.Item>
           </Menu>
         </Navbar.Center>
