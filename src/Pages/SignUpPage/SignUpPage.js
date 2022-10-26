@@ -80,6 +80,13 @@ const SignUnPage = () => {
                   Sign up
                 </Button>
               </Form>
+              <p className="ml-1 text-start text-xs font-medium mt-5">
+                Already have an account? please
+                <Link className="text-primary underline ml-1" to={"/signin"}>
+                  Log in
+                </Link>
+                .
+              </p>
             </Card.Body>
           </Card>
         </Hero.Content>

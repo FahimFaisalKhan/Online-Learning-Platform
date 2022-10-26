@@ -70,19 +70,27 @@ const SignInPage = () => {
                 <label className="label ">
                   <Link
                     href="#"
-                    className="label-text-alt text-base-content"
+                    className="label-text-alt text-base-content font-medium"
                     hover="true"
                   >
                     Forgot password?
                   </Link>
                 </label>
+
                 <Button
-                  className="bg-base-content text-base-300 hover:text-base-content mt-5 capitalize border-none"
+                  className="bg-base-content text-base-300 hover:text-base-content mt-2 capitalize border-none"
                   type="submit"
                 >
                   Login
                 </Button>
               </Form>
+              <p className="ml-1 text-start text-xs font-medium mt-5">
+                New to BinaryBase ?{" "}
+                <Link className="text-primary underline" to={"/signup"}>
+                  Register now
+                </Link>
+                ! or
+              </p>
               <Button
                 onClick={executeGoogleSignIn}
                 className="bg-base-content text-base-300 hover:text-base-content mt-3  border-none"
