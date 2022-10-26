@@ -1,15 +1,17 @@
-import React from "react";
-import { Avatar, Button, Hero, Mask, Stats } from "react-daisyui";
+import React, { useContext } from "react";
+import { Avatar, Button, Hero, Stats } from "react-daisyui";
 import cover from "../../Static/Images/cover.png";
 import me from "../../Static/Images/me.jpg";
 import "./Home.css";
 import underline from "../../Static/Images/underline.svg";
 import HomePopularCourse from "../../Components/HomePoplularCorse/HomePopularCourse";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Contexts/UserContext/UserContext";
 
 const Home = () => {
   const courses = useLoaderData();
-
+  const data = useContext(AuthContext);
+  console.log(data);
   return (
     <section>
       <header className="flex container mx-auto py-24 ">

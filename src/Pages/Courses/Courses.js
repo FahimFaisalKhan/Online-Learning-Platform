@@ -7,7 +7,7 @@ import RatingStar from "../../Components/Rating/RatingStar";
 const Courses = () => {
   const courses = useLoaderData();
   const [currentlyDisplayingCourse, setCurrentlyDisplayingCourse] = useState();
-  console.log(currentlyDisplayingCourse);
+
   const text_bg_cls =
     "bg-clip-text text-transparent bg-gradient-to-r from-[#d6bdab] to-[#a88690]";
   return (
