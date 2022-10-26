@@ -1,11 +1,23 @@
+import { signOut } from "firebase/auth";
 import React, { useContext } from "react";
-import { Button, Dropdown, Menu, Navbar, Swap } from "react-daisyui";
+import {
+  Avatar,
+  Button,
+  Dropdown,
+  Menu,
+  Navbar,
+  Swap,
+  Tooltip,
+} from "react-daisyui";
 import { Link } from "react-router-dom";
 import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
+import { AuthContext } from "../../Contexts/UserContext/UserContext";
 import ToogleBtn from "../ToogleBtn/ToogleBtn";
 import "./Navigation.css";
 const Navigation = () => {
   const { changeMode } = useContext(MyThemeContext);
+  const { user, logOut } = useContext(AuthContext);
+
   return (
     <div>
       <Navbar className="p-0 items-start">
@@ -90,22 +102,55 @@ const Navigation = () => {
                 Blog
               </Link>
             </Menu.Item>
-            <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
-              <Link
-                className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
-                to={"/signin"}
-              >
-                Sign in
-              </Link>
-            </Menu.Item>
-            <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
-              <Link
-                className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
-                to={"/signup"}
-              >
-                Sign up
-              </Link>
-            </Menu.Item>
+            {!user && (
+              <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
+                <Link
+                  className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
+                  to={"/signin"}
+                >
+                  Sign in
+                </Link>
+              </Menu.Item>
+            )}
+            {!user && (
+              <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
+                <Link
+                  className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
+                  to={"/signup"}
+                >
+                  Sign up
+                </Link>
+              </Menu.Item>
+            )}
+            {user && (
+              <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
+                <Link
+                  className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
+                  to={"/"}
+                  onClick={logOut}
+                >
+                  Sign Out
+                </Link>
+              </Menu.Item>
+            )}
+            {user && (
+              <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
+                <Link
+                  className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
+                  to={"/"}
+                >
+                  <Tooltip message={user.displayName}>
+                    <Avatar
+                      src={user.photoURL}
+                      shape="circle"
+                      size="xs"
+                      border={true}
+                      online={true}
+                    />
+                  </Tooltip>
+                </Link>
+              </Menu.Item>
+            )}
             <Menu.Item className=" border-b-2 border-black grow justify-center ">
               <Link
                 className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"

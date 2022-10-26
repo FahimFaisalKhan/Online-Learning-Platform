@@ -12,7 +12,7 @@ import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
 const Home = () => {
   const courses = useLoaderData();
   const { lightMode } = useContext(MyThemeContext);
-  console.log(lightMode);
+
   return (
     <section>
       <header className="flex container mx-auto py-24 ">

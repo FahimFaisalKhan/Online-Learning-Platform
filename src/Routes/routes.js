@@ -11,6 +11,7 @@ import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
 import SignInPage from "../Pages/SignInPage/SignInPage";
 import SignUnPage from "../Pages/SignUpPage/SignUpPage";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 // You can do this:
 export const router = createBrowserRouter(
@@ -38,7 +39,11 @@ export const router = createBrowserRouter(
       ></Route>
       <Route
         path="checkout/:id"
-        element={<Checkout></Checkout>}
+        element={
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        }
         loader={({ params }) => fetch(`/${params.id}`)}
       ></Route>
       <Route path="signin" element={<SignInPage></SignInPage>}></Route>

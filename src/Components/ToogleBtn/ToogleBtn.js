@@ -4,10 +4,13 @@ import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
 const ToogleBtn = () => {
   const { lightMode } = useContext(MyThemeContext);
 
+  useEffect(() => {
+    document.getElementById("toogle-btn").checked = !lightMode;
+  }, [lightMode]);
   return (
     <div>
       <label className="swap swap-rotate">
-        <input id="toogle-btn" type="checkbox" checked={!lightMode} />
+        <input id="toogle-btn" type="checkbox" />
 
         <svg
           className="swap-on fill-current w-10 h-10"

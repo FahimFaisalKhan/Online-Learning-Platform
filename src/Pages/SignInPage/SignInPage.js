@@ -1,11 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Card, Form, Hero, Input } from "react-daisyui";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./SignInPage.css";
 import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
+import { AuthContext } from "../../Contexts/UserContext/UserContext";
+import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
+import { Result } from "postcss";
 
 const SignInPage = () => {
+  const { lightMode } = useContext(MyThemeContext);
+  const { signInWithMail, signInWithGoogle, signInWithGithub } =
+    useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const redirectRoute = location?.state?.form?.pathname || "/courses";
+  const executeSignIn = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    console.log(form);
+    const email = form.email.value;
+    const password = form.password.value;
+    signInWithMail(email, password)
+      .then(() => navigate(redirectRoute))
+      .catch((e) => console.log(e.message));
+  };
+
+  const executeGoogleSignIn = () => {
+    signInWithGoogle()
+      .then(() => navigate(redirectRoute))
+      .catch((e) => console.log(e.message));
+  };
+
+  const executeGithubSignIn = () => {
+    signInWithGithub()
+      .then(() => navigate(redirectRoute))
+      .catch((e) => console.log(e.message));
+  };
   return (
     <section className="min-h-[80vh] flex items-center">
       <Hero>
@@ -13,20 +44,28 @@ const SignInPage = () => {
           <div className="text-center  mb-5 ">
             <h1 className="text-5xl font-bold text-base-300">Login now!</h1>
           </div>
-          <Card className="flex-shrink-0 w-full max-w-sm shadow-2xl bg-gradient">
+          <Card
+            className={`flex-shrink-0 w-full max-w-sm shadow-2xl ${
+              lightMode ? "bg-gradient" : "bg-gradient-dark"
+            } `}
+          >
             <Card.Body>
-              <Form>
+              <Form onSubmit={executeSignIn}>
                 <Form.Label title="Email" />
                 <Input
                   type="text"
                   placeholder="email"
                   className="input-bordered"
+                  name="email"
+                  required
                 />
                 <Form.Label title="Password" />
                 <Input
-                  type="text"
+                  type="password"
                   placeholder="password"
                   className="input-bordered"
+                  name="password"
+                  required
                 />
                 <label className="label ">
                   <Link
@@ -38,24 +77,30 @@ const SignInPage = () => {
                   </Link>
                 </label>
                 <Button
-                  className="bg-base-content text-base-300 mt-5 capitalize border-none"
+                  className="bg-base-content text-base-300 hover:text-base-content mt-5 capitalize border-none"
                   type="submit"
                 >
                   Login
                 </Button>
-                <Button className="bg-base-content text-base-300 mt-3  border-none">
-                  <FcGoogle size={25}></FcGoogle>
-                  <p className="ml-[-1.5rem] capitalize">
-                    Sign <span className="lowercase">in with google</span>
-                  </p>
-                </Button>
-                <Button className="bg-base-content text-base-300 mt-3  border-none">
-                  <BsGithub size={25}></BsGithub>
-                  <p className="ml-[-1.5rem] capitalize">
-                    Sign <span className="lowercase">in with github</span>
-                  </p>
-                </Button>
               </Form>
+              <Button
+                onClick={executeGoogleSignIn}
+                className="bg-base-content text-base-300 hover:text-base-content mt-3  border-none"
+              >
+                <FcGoogle size={25}></FcGoogle>
+                <p className="ml-[-1.5rem] capitalize">
+                  Sign <span className="lowercase">in with google</span>
+                </p>
+              </Button>
+              <Button
+                onClick={executeGithubSignIn}
+                className="bg-base-content text-base-300 hover:text-base-content mt-3  border-none"
+              >
+                <BsGithub size={25}></BsGithub>
+                <p className="ml-[-1.5rem] capitalize">
+                  Sign <span className="lowercase">in with github</span>
+                </p>
+              </Button>
             </Card.Body>
           </Card>
         </Hero.Content>
