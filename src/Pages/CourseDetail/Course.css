@@ -1,0 +1,8 @@
+.btn-shadow-2 {
+  box-shadow: #6d28d9 5px 5px, #7c3aed 10px 10px, #8b5cf6 15px 15px,
+    #a78bfa 20px 20px;
+}
+
+.btn-shadow-2:active {
+  box-shadow: rgb(109 40 217) 5px 5px, rgb(124 58 237) 10px 10px;
+}

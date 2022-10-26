@@ -9,9 +9,8 @@ const CoursePageMenu = ({ topics }) => {
   for (let i = 0; i < topics.length; i += chunkSize) {
     const chunk = topics.slice(i, i + chunkSize);
     topicsFormated.push(chunk);
-    // do whatever
   }
-  console.log(topicsFormated);
+
   const text_bg_cls =
     "bg-clip-text text-transparent bg-gradient-to-r from-[#d6bdab] to-[#a88690]";
   return (

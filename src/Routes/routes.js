@@ -1,9 +1,11 @@
+import { Checkbox } from "react-daisyui";
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout/MainLayout";
+import Checkout from "../Pages/Checkout/Checkout";
 import Course from "../Pages/CourseDetail/Course";
 import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
@@ -30,6 +32,11 @@ export const router = createBrowserRouter(
       <Route
         path="/:id"
         element={<Course></Course>}
+        loader={({ params }) => fetch(`/${params.id}`)}
+      ></Route>
+      <Route
+        path="/checkout/:id"
+        element={<Checkout></Checkout>}
         loader={({ params }) => fetch(`/${params.id}`)}
       ></Route>
     </Route>

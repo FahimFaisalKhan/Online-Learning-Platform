@@ -1,12 +1,15 @@
-import React from "react";
-import { Badge, Button, Hero, Stats } from "react-daisyui";
-import { useActionData, useLoaderData } from "react-router-dom";
+import React, { createRef, forwardRef, useEffect, useState } from "react";
+import { Badge, Button, Hero, Stats, Tooltip } from "react-daisyui";
+import { Link, useActionData, useLoaderData } from "react-router-dom";
 import CoursePageAccrodion from "../../Components/CoursePageAccordion/CoursePageAccrodion";
 import CoursePageMenu from "../../Components/CoursePageMenu/CoursePageMenu";
-import me from "../../Static/Images/me.jpg";
+import Pdf from "react-to-pdf";
+import { FaDownload } from "react-icons/fa";
 import "./Course.css";
+
 const Course = () => {
   const course = useLoaderData();
+  const ref = createRef();
 
   const {
     id,
@@ -22,18 +25,21 @@ const Course = () => {
     time,
     learnings,
   } = course;
+
   return (
     <section>
       <Hero
+        ref={ref}
         className="min-h-[70vh] text-accent-content"
         style={{
           backgroundImage: `url(http://localhost:5000${image})`,
         }}
       >
         <Hero.Overlay />
-        <Hero.Content className="text-center w-full justify-start">
+        <Hero.Content className="text-center w-full justify-start  relative">
           <div className="text-start">
             <h1 className="text-5xl font-bold">{name}</h1>
+
             <p className="py-6 text-info-content text-xl font-semibold ">
               {shortDescription}
             </p>
@@ -85,6 +91,27 @@ const Course = () => {
               </Stats>
             </div>
           </div>
+          <Pdf
+            targetRef={ref}
+            filename="code-example.pdf"
+            x={-30}
+            y={50}
+            scale={0.6}
+          >
+            {({ toPdf }) => (
+              <Tooltip
+                className="absolute top-2 right-[-10%]"
+                message="Download Course Banner"
+              >
+                <Button
+                  className="text-2xl bg-transparent hover:bg-transparent border-none text-accent-content"
+                  onClick={toPdf}
+                >
+                  <FaDownload></FaDownload>
+                </Button>
+              </Tooltip>
+            )}
+          </Pdf>
         </Hero.Content>
       </Hero>
       <div>
@@ -107,6 +134,15 @@ const Course = () => {
           );
         })}
       </div>
+      <Link to={`/checkout/${id}`}>
+        <Button
+          size="lg"
+          className="mt-10 mb-56 btn-shadow-2 capitalize"
+          color="primary"
+        >
+          Get Premium Access
+        </Button>
+      </Link>
     </section>
   );
 };

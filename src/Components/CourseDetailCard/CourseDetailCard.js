@@ -10,7 +10,7 @@ const CourseDetailCard = ({ course, handleCurrentlyDisplayingCourse }) => {
   const ref = useRef();
   // Trigger as soon as the element becomes visible
 
-  const inViewport = useIntersection(ref, "-400px"); // Trigger if 200px is visible from the element
+  const inViewport = useIntersection(ref, "-300px"); // Trigger if 200px is visible from the element
   if (inViewport) {
     handleCurrentlyDisplayingCourse(course);
   }
@@ -28,7 +28,7 @@ const CourseDetailCard = ({ course, handleCurrentlyDisplayingCourse }) => {
           </i>
           <p className="pb-6 text-justify">{longDescription}</p>
           <Link to={`/${id}`} className=" self-end mt-24">
-            <Button className="text-accent-content">
+            <Button className="text-accent-content capitalize">
               See Details
               <AiOutlineArrowRight className="ml-2 text-xl"></AiOutlineArrowRight>
             </Button>
