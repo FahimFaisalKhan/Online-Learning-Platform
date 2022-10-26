@@ -1,0 +1,9 @@
+.collapse-open :where(.collapse-content),
+.collapse:focus:not(.collapse-close) :where(.collapse-content),
+.collapse:not(.collapse-close)
+  :where(input[type="checkbox"]:checked ~ .collapse-content) {
+  padding-bottom: 0;
+}
+.border-0-except-last-child:not(:last-child) {
+  border-bottom: 0;
+}

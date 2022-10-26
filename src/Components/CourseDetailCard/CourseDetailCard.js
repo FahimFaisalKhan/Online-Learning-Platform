@@ -3,14 +3,14 @@ import { Button, Hero } from "react-daisyui";
 import "./CourseDetailCard.css";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useIntersection } from "../../Utilities/useIntersection";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const CourseDetailCard = ({ course, handleCurrentlyDisplayingCourse }) => {
   const { id, name, image, longDescription, instructor, price, time } = course;
 
   const ref = useRef();
   // Trigger as soon as the element becomes visible
 
-  const inViewport = useIntersection(ref, "-464px"); // Trigger if 200px is visible from the element
+  const inViewport = useIntersection(ref, "-400px"); // Trigger if 200px is visible from the element
   if (inViewport) {
     handleCurrentlyDisplayingCourse(course);
   }
@@ -27,10 +27,12 @@ const CourseDetailCard = ({ course, handleCurrentlyDisplayingCourse }) => {
             Why learn this?
           </i>
           <p className="pb-6 text-justify">{longDescription}</p>
-          <Button className="text-accent-content self-end mt-24">
-            See Details{" "}
-            <AiOutlineArrowRight className="ml-2 text-xl"></AiOutlineArrowRight>
-          </Button>
+          <Link to={`/${id}`} className=" self-end mt-24">
+            <Button className="text-accent-content">
+              See Details
+              <AiOutlineArrowRight className="ml-2 text-xl"></AiOutlineArrowRight>
+            </Button>
+          </Link>
         </div>
       </Hero.Content>
     </Hero>

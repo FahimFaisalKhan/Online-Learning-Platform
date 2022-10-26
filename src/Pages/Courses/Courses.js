@@ -7,6 +7,7 @@ import RatingStar from "../../Components/Rating/RatingStar";
 const Courses = () => {
   const courses = useLoaderData();
   const [currentlyDisplayingCourse, setCurrentlyDisplayingCourse] = useState();
+  console.log(currentlyDisplayingCourse);
   const text_bg_cls =
     "bg-clip-text text-transparent bg-gradient-to-r from-[#d6bdab] to-[#a88690]";
   return (
@@ -14,7 +15,7 @@ const Courses = () => {
       <div className=" w-3/12 relative">
         <aside className="sticky top-0 bg-base-300 w-full min-h-screen py-10 px-7">
           <div className={text_bg_cls}>
-            <Link>
+            <Link to={`/${currentlyDisplayingCourse?.id}`}>
               <h2 className="font-bold text-3xl hover:underline decoration-primary underline-offset-4">
                 {currentlyDisplayingCourse?.name}
               </h2>
@@ -24,7 +25,7 @@ const Courses = () => {
               Features
             </h6>
             <div className="flex flex-col items-start mt-5 font-semibold gap-3">
-              <Link>
+              <Link to={`/${currentlyDisplayingCourse?.id}`}>
                 <h6 className="hover:underline decoration-primary underline-offset-4">
                   Instructor -
                   <span className="text-accent-content ml-2">
@@ -32,7 +33,7 @@ const Courses = () => {
                   </span>
                 </h6>
               </Link>
-              <Link>
+              <Link to={`/${currentlyDisplayingCourse?.id}`}>
                 <h6 className="hover:underline decoration-primary underline-offset-4">
                   Total Hours -
                   <span className="text-accent-content ml-2">
@@ -40,7 +41,7 @@ const Courses = () => {
                   </span>
                 </h6>
               </Link>
-              <Link>
+              <Link to={`/${currentlyDisplayingCourse?.id}`}>
                 <h6 className="hover:underline decoration-primary underline-offset-4">
                   Chapters -
                   <span className="text-accent-content ml-2">
@@ -48,7 +49,7 @@ const Courses = () => {
                   </span>
                 </h6>
               </Link>
-              <Link>
+              <Link to={`/${currentlyDisplayingCourse?.id}`}>
                 <h6 className="hover:underline decoration-primary underline-offset-4">
                   Price -
                   <span className="text-accent-content ml-2">
@@ -56,14 +57,14 @@ const Courses = () => {
                   </span>
                 </h6>
               </Link>
-              <Link>
+              <Link to={`/${currentlyDisplayingCourse?.id}`}>
                 <RatingStar
                   rating={currentlyDisplayingCourse?.rating}
                   textColor={text_bg_cls}
                 ></RatingStar>
               </Link>
 
-              <Link>
+              <Link to={`/${currentlyDisplayingCourse?.id}`}>
                 <Badge
                   size="lg"
                   color="warning"

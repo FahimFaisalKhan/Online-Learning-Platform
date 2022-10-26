@@ -4,6 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout/MainLayout";
+import Course from "../Pages/CourseDetail/Course";
 import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
 
@@ -26,6 +27,11 @@ export const router = createBrowserRouter(
         element={<Courses></Courses>}
         loader={() => fetch("/allCourses")}
       />
+      <Route
+        path="/:id"
+        element={<Course></Course>}
+        loader={({ params }) => fetch(`/${params.id}`)}
+      ></Route>
     </Route>
   )
 );
