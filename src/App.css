@@ -9,3 +9,12 @@
   );
   min-height: 100vh;
 }
+
+.App-dark {
+  text-align: center;
+  background: linear-gradient(80deg, #414141, #000000);
+  min-height: 100vh;
+}
+.bg-gradient-dark {
+  background: linear-gradient(80deg, #414141, #000000);
+}

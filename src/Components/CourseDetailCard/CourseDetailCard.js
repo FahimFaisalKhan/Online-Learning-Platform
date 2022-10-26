@@ -1,12 +1,13 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { Button, Hero } from "react-daisyui";
 import "./CourseDetailCard.css";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useIntersection } from "../../Utilities/useIntersection";
 import { Link, useLocation } from "react-router-dom";
+import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
 const CourseDetailCard = ({ course, handleCurrentlyDisplayingCourse }) => {
   const { id, name, image, longDescription, instructor, price, time } = course;
-
+  const { lightMode } = useContext(MyThemeContext);
   const ref = useRef();
   // Trigger as soon as the element becomes visible
 
@@ -16,7 +17,9 @@ const CourseDetailCard = ({ course, handleCurrentlyDisplayingCourse }) => {
   }
   return (
     <Hero
-      className="bg-card w-10/12 my-24 mx-auto rounded-lg text-base-300 "
+      className={`${
+        lightMode ? "bg-card" : "bg-gradient-dark"
+      }  w-10/12 my-24 mx-auto rounded-lg text-base-content `}
       ref={ref}
     >
       <Hero.Content>
@@ -28,7 +31,7 @@ const CourseDetailCard = ({ course, handleCurrentlyDisplayingCourse }) => {
           </i>
           <p className="pb-6 text-justify">{longDescription}</p>
           <Link to={`/${id}`} className=" self-end mt-24">
-            <Button className="text-accent-content capitalize">
+            <Button className="text-base-300 hover:text-base-content hover:bg-base-300  bg-base-content  capitalize">
               See Details
               <AiOutlineArrowRight className="ml-2 text-xl"></AiOutlineArrowRight>
             </Button>

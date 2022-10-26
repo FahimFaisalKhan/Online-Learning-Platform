@@ -9,6 +9,8 @@ import Checkout from "../Pages/Checkout/Checkout";
 import Course from "../Pages/CourseDetail/Course";
 import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
+import SignInPage from "../Pages/SignInPage/SignInPage";
+import SignUnPage from "../Pages/SignUpPage/SignUpPage";
 
 // You can do this:
 export const router = createBrowserRouter(
@@ -35,10 +37,12 @@ export const router = createBrowserRouter(
         loader={({ params }) => fetch(`/${params.id}`)}
       ></Route>
       <Route
-        path="/checkout/:id"
+        path="checkout/:id"
         element={<Checkout></Checkout>}
         loader={({ params }) => fetch(`/${params.id}`)}
       ></Route>
+      <Route path="signin" element={<SignInPage></SignInPage>}></Route>
+      <Route path="signup" element={<SignUnPage></SignUnPage>}></Route>
     </Route>
   )
 );

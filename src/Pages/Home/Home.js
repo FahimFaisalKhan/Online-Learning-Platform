@@ -7,15 +7,16 @@ import underline from "../../Static/Images/underline.svg";
 import HomePopularCourse from "../../Components/HomePoplularCorse/HomePopularCourse";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/UserContext/UserContext";
+import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
 
 const Home = () => {
   const courses = useLoaderData();
-  const data = useContext(AuthContext);
-  console.log(data);
+  const { lightMode } = useContext(MyThemeContext);
+  console.log(lightMode);
   return (
     <section>
       <header className="flex container mx-auto py-24 ">
-        <div className="w-1/2 flex flex-col justify-center items-start text-base-300 ">
+        <div className="w-1/2 flex flex-col justify-center items-start text-base-content ">
           <h3 className="font-bold">— Your Best Choice</h3>
           <div className="relative">
             <h1 className="text-start text-6xl font-bold leading-snug ">
@@ -35,13 +36,17 @@ const Home = () => {
             nobis quisquam nulla minus doloremque repellat obcaecati
             perspiciatis architecto! Mollitia, molestiae corrupti.
           </p>
-          <Button className="text-accent-content mt-5 px-12 btn-shadow">
+          <Button className="bg-base-content text-base-100 mt-5 px-12 btn-shadow">
             Learn More
           </Button>
         </div>
         <div className="w-1/2 flex justify-center items-center relative">
           <img className="block w-96" src={cover} alt="" />
-          <Stats className="stats-vertical lg:stats-horizontal rounded-md p-5 shadow absolute cover-stat bg-stats text-base-300">
+          <Stats
+            className={`stats-vertical lg:stats-horizontal rounded-md p-5 shadow absolute cover-stat ${
+              lightMode ? "bg-stats" : "bg-gradient-dark"
+            }  text-base-content`}
+          >
             <Stats.Stat>
               <Stats.Stat.Item className="font-semibold " variant="value">
                 15
@@ -56,8 +61,12 @@ const Home = () => {
               <Stats.Stat.Item variant="title">Members</Stats.Stat.Item>
             </Stats.Stat>
           </Stats>
-          <Hero className="absolute w-1/2 text-base-300 cover-comment">
-            <Hero.Overlay className="rounded-md bg-stats " />
+          <Hero className="absolute w-1/2 text-base-content cover-comment">
+            <Hero.Overlay
+              className={`rounded-md ${
+                lightMode ? "bg-stats" : "bg-gradient-dark"
+              }  "`}
+            />
             <Hero.Content className="text-start">
               <div className="max-w-md">
                 <div className="flex items-center gap-3">

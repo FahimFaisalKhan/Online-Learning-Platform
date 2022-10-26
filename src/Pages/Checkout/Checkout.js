@@ -7,7 +7,7 @@ const Checkout = () => {
   console.log(data);
   const { name, image, price } = data;
   return (
-    <section className="text-base-300">
+    <section className="text-base-content">
       <div className="container p-12 mx-auto">
         <div className="flex flex-col w-full px-0 mx-auto md:flex-row">
           <div className="flex flex-col md:w-full">
@@ -135,7 +135,7 @@ const Checkout = () => {
                   ></textarea>
                 </div>
                 <div className="mt-4">
-                  <Button className="w-full px-6 py-2 text-accent-content bg-base-content">
+                  <Button className="w-full px-6 py-2 text-base-content bg-base-100 border-none">
                     Process
                   </Button>
                 </div>
@@ -144,7 +144,7 @@ const Checkout = () => {
           </div>
           <div className="flex flex-col w-full ml-0 lg:ml-12 lg:w-2/5">
             <div className="pt-12 md:pt-0 2xl:ps-4">
-              <h2 className="text-xl font-bold underline decoration-double decoration-base-300 underline-offset-4">
+              <h2 className="text-xl font-bold underline decoration-double decoration-base-content underline-offset-4">
                 Order Summary
               </h2>
               <div className="mt-8">
@@ -161,7 +161,7 @@ const Checkout = () => {
                 </div>
               </div>
               <div className="flex p-4 mt-4">
-                <h2 className="text-xl font-bold underline decoration-double decoration-base-300 underline-offset-4">
+                <h2 className="text-xl font-bold underline decoration-double decoration-base-content underline-offset-4">
                   Pricing
                 </h2>
               </div>

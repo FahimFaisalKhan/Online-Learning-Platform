@@ -29,16 +29,16 @@ const HomePopularCourse = ({ courses }) => {
   };
 
   return (
-    <section className="mt-44 py-32 min-h-screen border-t-2 border-base-300 text-base-300">
+    <section className="mt-44 py-32 min-h-screen border-t-2 border-base-content text-base-content">
       <div className="flex flex-col items-center">
-        <h1 className="text-5xl font-semibold text-base-300">
+        <h1 className="text-5xl font-semibold text-base-content">
           Our Popular Cources
         </h1>
         <div className="flex mt-44 gap-2">
-          <h2 className="w-1/2 text-5xl font-semibold border-r-2 border-base-300">
+          <h2 className="w-1/2 text-5xl font-semibold border-r-2 border-base-content">
             {displayCourse.name}
           </h2>
-          <p className="w-1/2 text-start font-medium px-32 border-l-2 border-base-300">
+          <p className="w-1/2 text-start font-medium px-32 border-l-2 border-base-content">
             {displayCourse.shortDescription}
           </p>
         </div>
@@ -73,7 +73,7 @@ const HomePopularCourse = ({ courses }) => {
           onClick={handleChange}
           className="absolute right-96 hover:bg-transparent bg-transparent border-none"
         >
-          <BsFillArrowRightCircleFill className="text-8xl text-base-300"></BsFillArrowRightCircleFill>
+          <BsFillArrowRightCircleFill className="text-8xl text-base-content"></BsFillArrowRightCircleFill>
         </Button>
       </main>
     </section>

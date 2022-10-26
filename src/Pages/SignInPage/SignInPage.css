@@ -1,0 +1,12 @@
+.bg-gradient {
+  background: linear-gradient(
+    80deg,
+    #d9d0dc,
+    #f0ddce 40%,
+    #f0ddce 75%,
+    #bda3ab 100%
+  );
+}
+.label-text {
+  color: rgb(31 41 55);
+}

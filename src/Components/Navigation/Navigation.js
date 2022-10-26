@@ -1,8 +1,11 @@
-import React from "react";
-import { Button, Dropdown, Menu, Navbar } from "react-daisyui";
+import React, { useContext } from "react";
+import { Button, Dropdown, Menu, Navbar, Swap } from "react-daisyui";
 import { Link } from "react-router-dom";
+import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
+import ToogleBtn from "../ToogleBtn/ToogleBtn";
 import "./Navigation.css";
 const Navigation = () => {
+  const { changeMode } = useContext(MyThemeContext);
   return (
     <div>
       <Navbar className="p-0 items-start">
@@ -53,14 +56,11 @@ const Navigation = () => {
           </Dropdown>
           <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
         </Navbar.Start>
-        <Navbar.Center
-          className="hidden lg:flex w-full"
-          style={{ color: "#101213" }}
-        >
+        <Navbar.Center className="hidden lg:flex w-full text-base-content">
           <Menu horizontal className="p-0 w-full ">
             <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
               <Link
-                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
                 to={"/"}
               >
                 logo name
@@ -68,7 +68,7 @@ const Navigation = () => {
             </Menu.Item>
             <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
               <Link
-                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
                 to={"/courses"}
               >
                 Courses
@@ -76,7 +76,7 @@ const Navigation = () => {
             </Menu.Item>
             <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
               <Link
-                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
                 to={"/"}
               >
                 FAQ
@@ -84,7 +84,7 @@ const Navigation = () => {
             </Menu.Item>
             <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
               <Link
-                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
                 to={"/"}
               >
                 Blog
@@ -92,26 +92,26 @@ const Navigation = () => {
             </Menu.Item>
             <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
               <Link
-                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
-                to={"/"}
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
+                to={"/signin"}
               >
                 Sign in
               </Link>
             </Menu.Item>
             <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
               <Link
-                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
-                to={"/"}
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
+                to={"/signup"}
               >
                 Sign up
               </Link>
             </Menu.Item>
             <Menu.Item className=" border-b-2 border-black grow justify-center ">
               <Link
-                className="w-full h-full py-8 justify-center rounded-none active:bg-base-300"
-                to={"/"}
+                className="w-full h-full py-8 justify-center rounded-none active:bg-base-content"
+                onClick={changeMode}
               >
-                Theme
+                <ToogleBtn></ToogleBtn>
               </Link>
             </Menu.Item>
           </Menu>

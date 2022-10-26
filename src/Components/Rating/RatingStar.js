@@ -2,7 +2,7 @@ import React from "react";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 const RatingStar = ({ rating, textColor }) => {
   return (
-    <div className="flex text-accent-content hover:text-primary  text-2xl gap-2 ">
+    <div className="flex text-base-content hover:text-primary  text-2xl gap-2 ">
       {rating >= 1 ? (
         <BsStarFill></BsStarFill>
       ) : rating >= 0.5 ? (
