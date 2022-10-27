@@ -1,6 +1,6 @@
 {
   "name": "assign-10",
-  "proxy": "https://asignment-10-server.vercel.app",
+  "proxy":"https://asignment-10-server.vercel.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -24,7 +24,7 @@ const CourseDetailCard = ({ course, handleCurrentlyDisplayingCourse }) => {
     >
       <Hero.Content className="flex-col xl:flex-row ">
         <img
-          src={image}
+          src={`https://asignment-10-server.vercel.app${image}`}
           className=" lg:max-w-sm rounded-lg shadow-2xl"
           alt="#"
         />

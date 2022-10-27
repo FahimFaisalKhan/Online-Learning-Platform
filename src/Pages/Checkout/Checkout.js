@@ -151,7 +151,11 @@ const Checkout = () => {
                 <div className="flex flex-col space-y-4">
                   <div className="flex flex-col-reverse gap-5 xl:flex-row space-x-4">
                     <div>
-                      <img src={image} alt="#" className="xl:w-60" />
+                      <img
+                        src={`https://asignment-10-server.vercel.app${image}`}
+                        alt="#"
+                        className="xl:w-60"
+                      />
                     </div>
                     <div>
                       <h2 className="text-xl font-bold">{name}</h2>

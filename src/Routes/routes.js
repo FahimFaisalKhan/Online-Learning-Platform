@@ -26,23 +26,31 @@ export const router = createBrowserRouter(
       <Route
         path="/"
         element={<Home></Home>}
-        loader={() => fetch("/allCourses")}
+        loader={async () => {
+          return fetch("https://asignment-10-server.vercel.app/allCourses");
+        }}
       />
       <Route
         path="home"
         element={<Home></Home>}
-        loader={() => fetch("/allCourses")}
+        loader={async () => {
+          return fetch("https://asignment-10-server.vercel.app/allCourses");
+        }}
       />
       <Route
         path="courses"
         element={<Courses></Courses>}
-        loader={() => fetch("/allCourses")}
+        loader={async () => {
+          return fetch("https://asignment-10-server.vercel.app/allCourses");
+        }}
       />
       <Route path="blog" element={<Blog></Blog>} />
       <Route
         path="/:id"
         element={<Course></Course>}
-        loader={({ params }) => fetch(`/${params.id}`)}
+        loader={async ({ params }) => {
+          return fetch(`https://asignment-10-server.vercel.app/${params.id}`);
+        }}
       ></Route>
       {/* This is protected route for only logged in users */}
       <Route
@@ -52,7 +60,9 @@ export const router = createBrowserRouter(
             <Checkout></Checkout>
           </PrivateRoute>
         }
-        loader={({ params }) => fetch(`/${params.id}`)}
+        loader={async ({ params }) => {
+          return fetch(`https://asignment-10-server.vercel.app/${params.id}`);
+        }}
       ></Route>
       <Route path="signin" element={<SignInPage></SignInPage>}></Route>
       <Route path="signup" element={<SignUnPage></SignUnPage>}></Route>

@@ -51,7 +51,7 @@ const HomePopularCourse = ({ courses }) => {
             return (
               <img
                 key={id}
-                src={image}
+                src={`https://asignment-10-server.vercel.app${image}`}
                 className={`w-72 h-96 absolute img-${index + 1} rounded-lg`}
                 alt=""
               />
@@ -60,7 +60,7 @@ const HomePopularCourse = ({ courses }) => {
             return (
               <img
                 key={id}
-                src={displayCourse.image}
+                src={`https://asignment-10-server.vercel.app${displayCourse.image}`}
                 className={`w-72 h-96 absolute img-dis ${
                   animation && "move-img-dis"
                 } rounded-lg`}
