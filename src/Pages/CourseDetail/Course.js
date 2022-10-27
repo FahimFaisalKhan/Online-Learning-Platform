@@ -48,7 +48,7 @@ const Course = () => {
           <div className="text-start">
             <h1 className="text-5xl font-bold">{name}</h1>
 
-            <p className="py-6 text-base-content text-xl font-semibold ">
+            <p className="mt-20 lg:mt-0 py-6 text-base-content text-xl font-semibold ">
               {shortDescription}
             </p>
             <div className="flex flex-col">
@@ -120,7 +120,7 @@ const Course = () => {
           >
             {({ toPdf }) => (
               <Tooltip
-                className="absolute top-5 left-44 md:left-auto md:right-16 2xl:right-auto 2xl:left-44"
+                className="absolute download-btn"
                 message="Download Course Banner"
               >
                 <Button

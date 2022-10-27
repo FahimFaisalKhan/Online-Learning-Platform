@@ -6,3 +6,32 @@
 .btn-shadow-2:active {
   box-shadow: rgb(109 40 217) 5px 5px, rgb(124 58 237) 10px 10px;
 }
+
+.download-btn {
+  top: 13rem;
+  left: 2px;
+}
+@media screen and (min-width: 321px) {
+  .download-btn {
+    top: 10rem;
+  }
+}
+@media screen and (min-width: 426px) {
+  .download-btn {
+    top: 5rem;
+  }
+}
+@media screen and (min-width: 769px) {
+  .download-btn {
+    top: 1rem;
+    left: auto;
+    right: 4rem;
+  }
+}
+@media screen and (min-width: 1441px) {
+  .download-btn {
+    top: 1rem;
+    left: auto;
+    right: 0;
+  }
+}
