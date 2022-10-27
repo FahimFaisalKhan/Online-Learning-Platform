@@ -48,7 +48,7 @@ const Course = () => {
           <div className="text-start">
             <h1 className="text-5xl font-bold">{name}</h1>
 
-            <p className="mt-20 lg:mt-0 py-6 text-base-content text-xl font-semibold ">
+            <p className="mt-32 lg:mt-0 py-6 text-base-content text-xl font-semibold ">
               {shortDescription}
             </p>
             <div className="flex flex-col">
