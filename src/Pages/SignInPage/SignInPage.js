@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
 import { AuthContext } from "../../Contexts/UserContext/UserContext";
 import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
-import { Result } from "postcss";
+import toast, { Toaster } from "react-hot-toast";
 
 const SignInPage = () => {
   const { lightMode } = useContext(MyThemeContext);
@@ -18,12 +18,19 @@ const SignInPage = () => {
   const executeSignIn = (event) => {
     event.preventDefault();
     const form = event.target;
-    console.log(form);
+
     const email = form.email.value;
     const password = form.password.value;
     signInWithMail(email, password)
       .then(() => navigate(redirectRoute))
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        const error = e.message;
+        const parsedError = error
+          .slice(error.indexOf("/") + 1, error.indexOf(")"))
+          .replace("-", " ");
+        const notify = () => toast(parsedError);
+        notify();
+      });
   };
 
   const executeGoogleSignIn = () => {
@@ -84,6 +91,11 @@ const SignInPage = () => {
                   Login
                 </Button>
               </Form>
+              <Toaster
+                toastOptions={{
+                  style: { background: "rgb(239 68 68)" },
+                }}
+              />
               <p className="ml-1 text-start text-xs font-medium mt-5">
                 New to BinaryBase ?{" "}
                 <Link className="text-primary underline" to={"/signup"}>

@@ -4,15 +4,22 @@ import { Link, useLoaderData } from "react-router-dom";
 import CourseDetailCard from "../../Components/CourseDetailCard/CourseDetailCard";
 import RatingStar from "../../Components/Rating/RatingStar";
 import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
+import { AuthContext } from "../../Contexts/UserContext/UserContext";
 
 const Courses = () => {
   const { lightMode } = useContext(MyThemeContext);
+  const { loading } = useContext(AuthContext);
   const courses = useLoaderData();
   const [currentlyDisplayingCourse, setCurrentlyDisplayingCourse] = useState();
 
   const text_bg_cls = lightMode
     ? "bg-clip-text text-transparent bg-gradient-to-r from-[#d6bdab] to-[#a88690]"
     : "bg-clip-text text-transparent bg-gradient-to-r from-[#414141] to-[#000000]";
+
+  console.log(loading);
+  if (loading) {
+    return <div>loading</div>;
+  }
   return (
     <section className="flex flex-col lg:flex-row lg:min-h-screen">
       <div className=" w-full lg:w-5/12 xl:w-3/12 relative">

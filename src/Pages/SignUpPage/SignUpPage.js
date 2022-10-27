@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Card, Form, Hero, Input } from "react-daisyui";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../../Contexts/UserContext/UserContext";
 import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
-
+import toast, { Toaster } from "react-hot-toast";
 const SignUnPage = () => {
+  const navigate = useNavigate();
   const { lightMode } = useContext(MyThemeContext);
   const { signUpWithMail } = useContext(AuthContext);
+
   const executeSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,10 +22,30 @@ const SignUnPage = () => {
       .then((result) =>
         updateProfile(result.user, { displayName: name, photoURL: img })
           .then(() => {})
-          .catch((er) => console.log(er.message))
+
+          .catch((er) => {
+            const error = er.message;
+            console.log(error);
+            const chars = { "(": " ", "/": " ", "-": " " };
+            const parsedError = error
+              .slice(error.indexOf(":") + 1, error.indexOf(")"))
+              .replace(/[(/-]/g, (m) => chars[m]);
+            const notify = () => toast(parsedError);
+            notify();
+          })
       )
-      .catch((e) => console.log(e.message));
+      .then(() => navigate("/courses"))
+
+      .catch((e) => {
+        const error = e.message;
+        const parsedError = error
+          .slice(error.indexOf("/") + 1, error.indexOf(")"))
+          .replace("-", " ");
+        const notify = () => toast(parsedError);
+        notify();
+      });
   };
+
   return (
     <section className="min-h-[80vh] flex items-center">
       <Hero>
@@ -80,6 +102,11 @@ const SignUnPage = () => {
                   Sign up
                 </Button>
               </Form>
+              <Toaster
+                toastOptions={{
+                  style: { background: "rgb(239 68 68)" },
+                }}
+              />
               <p className="ml-1 text-start text-xs font-medium mt-5">
                 Already have an account? please
                 <Link className="text-primary underline ml-1" to={"/signin"}>

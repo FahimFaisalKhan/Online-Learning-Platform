@@ -9,6 +9,7 @@ import Checkout from "../Pages/Checkout/Checkout";
 import Course from "../Pages/CourseDetail/Course";
 import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
+import Blog from "../Pages/Blog/Blog";
 import SignInPage from "../Pages/SignInPage/SignInPage";
 import SignUnPage from "../Pages/SignUpPage/SignUpPage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
@@ -32,6 +33,7 @@ export const router = createBrowserRouter(
         element={<Courses></Courses>}
         loader={() => fetch("/allCourses")}
       />
+      <Route path="blog" element={<Blog></Blog>} />
       <Route
         path="/:id"
         element={<Course></Course>}

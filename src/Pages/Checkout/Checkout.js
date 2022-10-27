@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Checkout = () => {
   const data = useLoaderData();
-  console.log(data);
+
   const { name, image, price } = data;
   return (
     <section className="text-base-content">
