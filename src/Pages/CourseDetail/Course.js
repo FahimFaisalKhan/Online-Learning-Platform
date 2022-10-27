@@ -40,7 +40,7 @@ const Course = () => {
         ref={ref}
         className="min-h-[70vh] text-base-content"
         style={{
-          backgroundImage: `url(http://localhost:5000${image})`,
+          backgroundImage: `url(https://asignment-10-server.vercel.app${image})`,
         }}
       >
         <Hero.Overlay />
