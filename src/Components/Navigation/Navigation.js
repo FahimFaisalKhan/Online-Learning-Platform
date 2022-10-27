@@ -36,7 +36,7 @@ const Navigation = () => {
               <Link className="self-start text-sm ml-4 mt-3" to={"/courses"}>
                 Courses
               </Link>
-              <Link className="self-start text-sm ml-4 mt-3" to={"/"}>
+              <Link className="self-start text-sm ml-4 mt-3" to={"/blog"}>
                 FAQ
               </Link>
               <Link className="self-start text-sm ml-4 mt-3" to={"/blog"}>
@@ -159,7 +159,7 @@ const Navigation = () => {
             <Menu.Item className=" border-r-2 border-b-2 border-black grow justify-center ">
               <Link
                 className="w-full h-full py-6 justify-center rounded-none active:bg-base-content"
-                to={"/"}
+                to={"/blog"}
               >
                 FAQ
               </Link>

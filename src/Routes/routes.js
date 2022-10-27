@@ -13,11 +13,16 @@ import Blog from "../Pages/Blog/Blog";
 import SignInPage from "../Pages/SignInPage/SignInPage";
 import SignUnPage from "../Pages/SignUpPage/SignUpPage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
-// You can do this:
+// Here are all the routes :
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<MainLayout></MainLayout>}>
+    <Route
+      path="/"
+      element={<MainLayout></MainLayout>}
+      errorElement={<ErrorPage></ErrorPage>}
+    >
       <Route
         path="/"
         element={<Home></Home>}
@@ -39,6 +44,7 @@ export const router = createBrowserRouter(
         element={<Course></Course>}
         loader={({ params }) => fetch(`/${params.id}`)}
       ></Route>
+      {/* This is protected route for only logged in users */}
       <Route
         path="checkout/:id"
         element={
