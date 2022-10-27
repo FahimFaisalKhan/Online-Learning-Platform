@@ -22,14 +22,20 @@ const CourseDetailCard = ({ course, handleCurrentlyDisplayingCourse }) => {
       }  w-10/12 my-24 mx-auto rounded-lg text-base-content `}
       ref={ref}
     >
-      <Hero.Content>
-        <img src={image} className="max-w-sm rounded-lg shadow-2xl" alt="#" />
-        <div className="flex flex-col justify-between items-center px-16 ">
-          <h1 className="text-5xl font-bold">{name}</h1>
+      <Hero.Content className="flex-col xl:flex-row ">
+        <img
+          src={image}
+          className=" lg:max-w-sm rounded-lg shadow-2xl"
+          alt="#"
+        />
+        <div className="flex flex-col justify-between items-center px-2 lg:px-16 ">
+          <h1 className="text-3xl lg:text-5xl font-bold">{name}</h1>
           <i className="pt-6 self-start text-lg font-semibold">
             Why learn this?
           </i>
-          <p className="pb-6 text-justify">{longDescription}</p>
+          <p className="pb-6 text-sm lg:text-lg text-justify">
+            {longDescription}
+          </p>
           <Link to={`/${id}`} className=" self-end mt-24">
             <Button className="text-base-300 hover:text-base-content hover:bg-base-300  bg-base-content  capitalize">
               See Details

@@ -15,11 +15,11 @@ const Home = () => {
 
   return (
     <section>
-      <header className="flex container mx-auto py-24 ">
-        <div className="w-1/2 flex flex-col justify-center items-start text-base-content ">
+      <header className="flex items-center flex-col lg:flex-row container mx-auto py-24 ">
+        <div className=" w-8/12 lg:w-1/2 lg:px-5 flex flex-col justify-center items-start text-base-content ">
           <h3 className="font-bold">— Your Best Choice</h3>
           <div className="relative">
-            <h1 className="text-start text-6xl font-bold leading-snug ">
+            <h1 className="text-start text-4xl lg:text-6xl font-bold leading-snug ">
               Programing <br /> In Simple Words
             </h1>
             <img
@@ -40,15 +40,18 @@ const Home = () => {
             Learn More
           </Button>
         </div>
-        <div className="w-1/2 flex justify-center items-center relative">
+        <div className="w-8/12 lg:w-1/2 flex justify-center items-center relative mt-44 lg:mt-0">
           <img className="block w-96" src={cover} alt="" />
           <Stats
-            className={`stats-vertical lg:stats-horizontal rounded-md p-5 shadow absolute cover-stat ${
+            className={`stats-vertical lg:stats-horizontal rounded-md lg:p-5 shadow absolute cover-stat ${
               lightMode ? "bg-stats" : "bg-gradient-dark"
             }  text-base-content`}
           >
             <Stats.Stat>
-              <Stats.Stat.Item className="font-semibold " variant="value">
+              <Stats.Stat.Item
+                className="font-semibold text-3xl lg:text-4xl"
+                variant="value"
+              >
                 15
               </Stats.Stat.Item>
               <Stats.Stat.Item variant="title">Courses</Stats.Stat.Item>
@@ -67,9 +70,9 @@ const Home = () => {
                 lightMode ? "bg-stats" : "bg-gradient-dark"
               }  "`}
             />
-            <Hero.Content className="text-start">
+            <Hero.Content className="text-start w-44 lg:w-[auto]">
               <div className="max-w-md">
-                <div className="flex items-center gap-3">
+                <div className="flex  flex-col lg:flex-row items-start lg:items-center gap-3">
                   <Avatar src={me} shape="circle" size={45}></Avatar>
                   <div>
                     <h1 className="text-md font-semibold ">Fahim Faisal</h1>

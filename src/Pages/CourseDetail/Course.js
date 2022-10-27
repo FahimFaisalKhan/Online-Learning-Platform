@@ -35,7 +35,7 @@ const Course = () => {
   } = course;
 
   return (
-    <section>
+    <section className="">
       <Hero
         ref={ref}
         className="min-h-[70vh] text-base-content"
@@ -44,7 +44,7 @@ const Course = () => {
         }}
       >
         <Hero.Overlay />
-        <Hero.Content className="text-center w-full justify-start  relative">
+        <Hero.Content className="text-center w-full justify-start  relative ">
           <div className="text-start">
             <h1 className="text-5xl font-bold">{name}</h1>
 
@@ -55,7 +55,7 @@ const Course = () => {
               <Stats
                 className={`stats-vertical lg:stats-horizontal shadow ${
                   lightMode ? "bg-card" : "bg-gradient-dark"
-                } w-full text-base-content rounded-sm`}
+                } w-full  text-base-content rounded-sm`}
               >
                 <Stats.Stat>
                   <Stats.Stat.Item variant="title">Instructor</Stats.Stat.Item>
@@ -120,7 +120,7 @@ const Course = () => {
           >
             {({ toPdf }) => (
               <Tooltip
-                className="absolute top-2 right-[-10%]"
+                className="absolute top-5 left-44 md:left-auto md:right-16 2xl:right-auto 2xl:left-44"
                 message="Download Course Banner"
               >
                 <Button

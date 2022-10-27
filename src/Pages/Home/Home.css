@@ -20,3 +20,13 @@
 .btn-shadow:active {
   box-shadow: #868686 5px 5px, #b6b6b6 10px 10px;
 }
+@media screen and (max-width: 426px) {
+  .cover-stat {
+    top: -25%;
+    right: -20%;
+  }
+  .cover-comment {
+    bottom: -55%;
+    left: -20%;
+  }
+}

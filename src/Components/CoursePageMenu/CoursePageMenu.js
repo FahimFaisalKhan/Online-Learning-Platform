@@ -18,7 +18,7 @@ const CoursePageMenu = ({ topics }) => {
     : "bg-clip-text text-transparent bg-gradient-to-r from-[#414141] to-[#000000]";
   return (
     <div>
-      <div className="flex w-full justify-around p-4 items-start font-sans component-preview bg-base-content font-medium  container mx-auto rounded-sm">
+      <div className="flex flex-col w-full justify-around p-4 items-start font-sans component-preview bg-base-content font-medium  container mx-auto rounded-sm">
         {topicsFormated.map((topics, index) => {
           return (
             <Menu key={index} className="gap-4">

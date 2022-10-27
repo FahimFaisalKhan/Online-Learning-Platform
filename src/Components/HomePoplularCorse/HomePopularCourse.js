@@ -34,17 +34,17 @@ const HomePopularCourse = ({ courses }) => {
         <h1 className="text-5xl font-semibold text-base-content">
           Our Popular Cources
         </h1>
-        <div className="flex mt-44 gap-2">
-          <h2 className="w-1/2 text-5xl font-semibold border-r-2 border-base-content">
+        <div className="flex flex-col lg:flex-row mt-44 gap-2 items-center justify-center">
+          <h2 className="w-8/12 lg:w-1/2 text-5xl font-semibold border-b-2 lg:border-b-0 lg:border-r-2 border-base-content pb-5 lg:pb-[auto] lg:py-9 xl:py-6 ">
             {displayCourse.name}
           </h2>
-          <p className="w-1/2 text-start font-medium px-32 border-l-2 border-base-content">
+          <p className="w-8/12 lg:w-1/2 text-start font-medium lg:px-32 border-t-2 lg:border-t-0 lg:border-l-2 border-base-content pt-5 lg:pt-[auto] lg:py-3 ">
             {displayCourse.shortDescription}
           </p>
         </div>
       </div>
 
-      <main className="flex justify-center items-center relative min-h-[75vh]">
+      <main className="flex justify-center items-center relative min-h-[75vh] mt-8">
         {allCourse.map((course, index) => {
           const { image, id } = course;
           if (index !== popCourses.length - 1) {
@@ -71,7 +71,7 @@ const HomePopularCourse = ({ courses }) => {
         })}
         <Button
           onClick={handleChange}
-          className="absolute right-96 hover:bg-transparent bg-transparent border-none "
+          className="absolute bottom-[-5rem] right-88  xl:bottom-[auto] xl:right-56 2xl:right-[25%] hover:bg-transparent bg-transparent border-none "
         >
           <BsFillArrowRightCircleFill className="text-8xl text-base-content "></BsFillArrowRightCircleFill>
         </Button>

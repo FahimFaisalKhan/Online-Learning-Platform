@@ -29,7 +29,7 @@ const SignUnPage = () => {
       <Hero>
         <Hero.Content className="flex-col  bg-base-content rounded-sm py-24 px-8 min-w-[80vw] ">
           <div className="text-center  mb-5 ">
-            <h1 className="text-5xl font-bold text-base-300">
+            <h1 className="text-3xl lg:text-5xl font-bold text-base-300">
               Sign up to get the full experience!
             </h1>
           </div>
@@ -38,7 +38,7 @@ const SignUnPage = () => {
               lightMode ? "bg-gradient" : "bg-gradient-dark"
             } `}
           >
-            <Card.Body>
+            <Card.Body className="px-4 lg:px-8  min-w-[83vw] md:min-w-[auto]">
               <Form onSubmit={executeSignUp}>
                 <Form.Label title="Name" />
                 <Input

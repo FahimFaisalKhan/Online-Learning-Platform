@@ -9,7 +9,7 @@ const Checkout = () => {
   return (
     <section className="text-base-content">
       <div className="container p-12 mx-auto">
-        <div className="flex flex-col w-full px-0 mx-auto md:flex-row">
+        <div className="flex flex-col-reverse w-full px-0 mx-auto md:flex-row md:gap-8">
           <div className="flex flex-col md:w-full">
             <h2 className="mb-4 font-bold md:text-xl text-heading ">
               Shipping Address
@@ -142,16 +142,16 @@ const Checkout = () => {
               </div>
             </form>
           </div>
-          <div className="flex flex-col w-full ml-0 lg:ml-12 lg:w-2/5">
+          <div className="flex flex-col w-full md:w-5/12 ml-0 lg:ml-12 lg:w-2/5">
             <div className="pt-12 md:pt-0 2xl:ps-4">
               <h2 className="text-xl font-bold underline decoration-double decoration-base-content underline-offset-4">
                 Order Summary
               </h2>
               <div className="mt-8">
                 <div className="flex flex-col space-y-4">
-                  <div className="flex space-x-4">
+                  <div className="flex flex-col-reverse gap-5 xl:flex-row space-x-4">
                     <div>
-                      <img src={image} alt="#" className="w-60" />
+                      <img src={image} alt="#" className="xl:w-60" />
                     </div>
                     <div>
                       <h2 className="text-xl font-bold">{name}</h2>
