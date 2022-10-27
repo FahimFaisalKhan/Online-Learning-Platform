@@ -6,7 +6,7 @@ import "./Home.css";
 import underline from "../../Static/Images/underline.svg";
 import HomePopularCourse from "../../Components/HomePoplularCorse/HomePopularCourse";
 import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../Contexts/UserContext/UserContext";
+
 import { MyThemeContext } from "../../Contexts/ThemeCntext/ThemeChangeContext";
 
 const Home = () => {
@@ -36,7 +36,7 @@ const Home = () => {
             nobis quisquam nulla minus doloremque repellat obcaecati
             perspiciatis architecto! Mollitia, molestiae corrupti.
           </p>
-          <Button className="bg-base-content text-base-100 mt-5 px-12 btn-shadow">
+          <Button className="bg-base-content text-base-100 hover:text-base-content mt-5 px-12 btn-shadow">
             Learn More
           </Button>
         </div>

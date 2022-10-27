@@ -9,6 +9,7 @@ import { MyThemeContext } from "./Contexts/ThemeCntext/ThemeChangeContext";
 
 function App() {
   const { lightMode } = useContext(MyThemeContext);
+
   return (
     <div className={lightMode ? "App" : "App-dark"}>
       <RouterProvider router={router}></RouterProvider>

@@ -71,9 +71,9 @@ const HomePopularCourse = ({ courses }) => {
         })}
         <Button
           onClick={handleChange}
-          className="absolute right-96 hover:bg-transparent bg-transparent border-none"
+          className="absolute right-96 hover:bg-transparent bg-transparent border-none "
         >
-          <BsFillArrowRightCircleFill className="text-8xl text-base-content"></BsFillArrowRightCircleFill>
+          <BsFillArrowRightCircleFill className="text-8xl text-base-content "></BsFillArrowRightCircleFill>
         </Button>
       </main>
     </section>
