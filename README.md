@@ -1,6 +1,6 @@
 Binary Base
 
-Live site:
+Live site: https://learning-platform-auth.web.app/
 
 • This is a online Learning Platform , Where users can register and buy couses which are primaryly based on programing languages and web technology.
 • To buy a course user have to Register.
